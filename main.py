@@ -1,3 +1,4 @@
+
 from dotenv import load_dotenv
 import os
 import base64
@@ -38,11 +39,9 @@ with left_column:
 
 with right_column:
     st_lottie(lottie_url, height = 400)
-   
+
 
     
-
-
 # -- SPOTIFY API PROGRAM -- 
 load_dotenv()
 
