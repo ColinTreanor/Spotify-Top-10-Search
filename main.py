@@ -1,10 +1,9 @@
-
-from dotenv import load_dotenv
+import json
 import os
 import base64
 import requests
 from requests import post, get
-import json
+from dotenv import load_dotenv
 import streamlit as st
 from streamlit_lottie import st_lottie
 
@@ -41,7 +40,7 @@ with right_column:
     st_lottie(lottie_url, height = 400)
 
 
-    
+
 # -- SPOTIFY API PROGRAM -- 
 load_dotenv()
 
