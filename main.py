@@ -44,8 +44,8 @@ with right_column:
 # -- SPOTIFY API PROGRAM -- 
 load_dotenv()
 
-client_id = os.getenv("client_id")
-client_secret = os.getenv("client_secret")
+client_id = os.getenv("CLIENT_ID")
+client_secret = os.getenv("CLIENT_SECRET")
 
 # -- function that return the user token required for the api -- 
 def get_token():
