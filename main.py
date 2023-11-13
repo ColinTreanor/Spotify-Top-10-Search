@@ -1,15 +1,29 @@
 from dotenv import load_dotenv
 import os
 import base64
+import requests
 from requests import post, get
 import json
 import streamlit as st
+from streamlit_lottie import st_lottie
+
 
 
 # -- STREAMLIT PAGE SETUP -- 
 st.set_page_config(page_title="Spotify Search", page_icon="🎵", layout="wide")
-st.markdown("<h1 style='text-align: center; color: #F0F8FF;'>🎵 Spotify Top 10 Search 🎵</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #F0F8FF;'> Spotify Top 10 Search </h1>", unsafe_allow_html=True)
 left_column, middle_column, right_column = st.columns(3)
+
+
+
+def load_lottiurl(url):
+    r = requests.get(url)
+    if r.status_code != 200: # check for error grabing animation 
+        return None
+    return r.json()
+
+# -- LOTTIE ASSETS -- 
+lottie_url = load_lottiurl("https://lottie.host/6e8717f3-ce87-412f-a505-69b8ecaef467/AcYdlpNlFo.json")
 
 
 #st.title(":green[:musical_note:]")
@@ -17,6 +31,15 @@ with middle_column:
     st.write("##")
     st.subheader("Enter your favorite Spotify artist here ⬇ to see their top 10 songs!")
     artist = st.text_input("Enter an artist")
+
+
+with left_column:
+    st_lottie(lottie_url, height = 400, key="coding")
+
+with right_column:
+    st_lottie(lottie_url, height = 400)
+   
+
     
 
 
